@@ -194,7 +194,7 @@ function imageScalToFit(img,x,y,w,h,ctx){
     ctx.drawImage(img, (x-((img.width* scale)/2)), (y-((img.height* scale)/4)), img.width * scale, img.height * scale);
 }
 function fullBackImage(img,x,y,w,h,ctx) {
-    var scale =Math.max((w/2) / (img.width), (h/2) / (img.height));
+    var scale =Math.max((w/2) / (img.width), (h/2) / (img.height))/2.3;
     ctx.drawImage(img, (x+(w/2))-((img.width * scale)/2), (y+(h/2))-((img.height * scale)/2), img.width * scale, img.height * scale);
 }
 function columnAndRowFinder(number) {

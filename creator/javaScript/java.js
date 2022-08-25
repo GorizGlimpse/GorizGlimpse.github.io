@@ -19,7 +19,7 @@ let emptyInputBorder = "border border-danger border-3 border-start-0 border-end-
 let fileDeleteQ = "ايا مطمئنيد كه ميخواهيد فايل را حذف كنيد ؟"
 let modeTwoSidedTextTXT ="حالت دو طرفه";
 let modeOnesidedDefultTextTXT = "حالت يك طرفه | متن پيش فرض";
-let modeOnesidedDefultPictureTextTXT = "حالت يك طرفه | تصوير پيش فرض";
+let modeOnesidedDefultPictureTextTXT = "حالت يك طرفه | لوگوی برنامه";
 let sampleDivOpeningTag = '<div class="row p-2 sample" id="sample" >';
 let needToCompleteAllFiledMessage= "لطفا تمامي فيلد ها را براي ادامه تكميل كنيد!";
 let dataAreCompletedCanCountinue = "ميتوانيد ادامه دهيد يا تغيير دهيد";
