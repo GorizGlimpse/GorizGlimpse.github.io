@@ -250,7 +250,7 @@ function cardCreatorTop(topOrBot) {
                         
                         imageScalToFit(image,textX,textY,availableAreaWidth-(((cardWidth/colAndRom[0])/15)*3),availableAreaHeight,paper);
                     }else{
-                        wrapText(paper,crText,textX,textY,availableAreaWidth-((((cardWidth)/colAndRom[0])/15)*3),(fontSize+(fontSize/5)),fontSize,availableAreaHeight);
+                        wrapText(paper,crText,textX,textY+(availableAreaHeight-(fontSize*colAndRom[1])),availableAreaWidth-((((cardWidth)/colAndRom[0])/15)*3),(fontSize+(fontSize/5)),fontSize,availableAreaHeight);
                     }
     
                 }

@@ -1,301 +1,239 @@
-<!DOCTYPE html>
-<html lang="fa" dir="rtl">
+<!doctype html>
+<html lang=fa dir=rtl>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- import jquery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <!-- import bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-    <!-- title data-->
-    <title>Glimpse | صفحه ساخت</title>
-    <link rel="apple-touch-icon" sizes="180x180" href="images/fav/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="images/fav/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="images/fav/favicon-16x16.png">
-<link rel="manifest" href="images/fav/site.webmanifest">
-<link rel="mask-icon" href="images/fav/safari-pinned-tab.svg" color="#5bbad5">
-<meta name="msapplication-TileColor" content="#da532c">
-<meta name="theme-color" content="#ffffff">
-    <!-- import css-->
-    <link rel="stylesheet" href="style/style.css">
-    <!-- import javascript-->
-    <script src="javaScript/bigdata.js"></script>
-    <script src="javaScript/java.js"></script>
-    <!-- import jspdf-->
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.3/jspdf.min.js"></script>
-
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KX1PW7RDZN"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-  
-    gtag('config', 'G-KX1PW7RDZN');
-  </script>
+<meta charset=UTF-8>
+<meta http-equiv=X-UA-Compatible content="IE=edge">
+<meta name=viewport content="width=device-width,initial-scale=1">
+<script src=https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js></script>
+<link href=https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css rel=stylesheet integrity=sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor crossorigin=anonymous>
+<title>Glimpse | صفحه ساخت</title>
+<link rel=apple-touch-icon sizes=180x180 href=images/fav/apple-touch-icon.png>
+<link rel=icon type=image/png sizes=32x32 href=images/fav/favicon-32x32.png>
+<link rel=icon type=image/png sizes=16x16 href=images/fav/favicon-16x16.png>
+<link rel=manifest href=images/fav/site.webmanifest>
+<link rel=mask-icon href=images/fav/safari-pinned-tab.svg color=#5bbad5>
+<meta name=msapplication-TileColor content=#da532c>
+<meta name=theme-color content=#ffffff>
+<link rel=stylesheet href=style/style.css>
+<script src=javaScript/bigdata.js></script>
+<script src=javaScript/java.js></script>
+<script src=//cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.3/jspdf.min.js></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KX1PW7RDZN"></script>
+<script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","G-KX1PW7RDZN")</script>
 </head>
-<body class="body">
-  
-    <div class="container" oninput="changed();">
-      <button class="btn notDelete contactus"data-bs-toggle="modal" data-bs-target="#exampleModal">ارسال پیام</button>
-    <script type="text/javascript"src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-    <script type="text/javascript">
-    (function(){
-      emailjs.init("pDIP1Ae4mP-aaLlqc");
-   })();
-    </script>
-    <script type="text/javascript">
-      function sendMail() {
-       if ($(".famname").val()!="" & $(".mailadress").val()!="" & $(".message").val()!="") {
-        var templateParams = {
-    name: ($(".famname").val()+"  with mail as:  "+$(".mailadress").val()),
-    notes: $(".message").val()
-};
- 
-emailjs.send('service_nbn8wzm', 'template_3b326fa', templateParams)
-    .then(function(response) {
-       alert("پیام با موفقیت ارسال شد");
-    }, function(error) {
-       alert('ارسال پیام با خطا انجام شد!', error);
-    });
-       }else{
-        alert("لطفا تمامی بخش ها را تکمیل کنید");
-       }
-      }
-
-        
-    </script>
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            <h5 class="modal-title" id="exampleModalLabel">ارسال پیام</h5>
-          </div>
-          <div class="modal-body">
-            <div class="mb-3">
-              <label for="exampleFormControlInput1" class="form-label ">نام و نام خانوادگی</label>
-              <input type="email" class="form-control famname" id="exampleFormControlInput1" placeholder="نام نام خانوادگی">
-            </div>
-            <div class="mb-3">
-              <label for="exampleFormControlInput1" class="form-label">نشانی ایمیل</label>
-              <input type="email" class="form-control mailadress" id="exampleFormControlInput1" placeholder="name@example.com">
-            </div>
-            <div class="mb-3">
-              <label for="exampleFormControlTextarea1" class="form-label ">متن پیام</label>
-              <textarea class="form-control message" id="exampleFormControlTextarea1" rows="3" placeholder="پیام خود را وارد کنید"></textarea>
-            </div>
-          </div>
-          <div class="modal-footer"dir="ltr">
-            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">خروج</button>
-            <button type="button" class="btn btn-primary"onclick="sendMail();">ارسال پیام</button>
-          </div>
-        </div>
-      </div>
-    </div>
-      <p class="waiter fontbold h4 p-3"style="display:none;">در حال پردازش اطلاعات ، لطفا صبر کنید</p>
-      
-        <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center beforeConfig">
-            <!-- starter page-->
-            <div class="card h-100 col-sm-6 border-0 shadow-lg starterPage">
-                <div class="card-body text-center">
-                    <p class="card-title p-3 h1 fontbold">به نام خدا</p>
-                    <p class="card-text p-3 h4 text-muted pb-5 lh-base">قبل از شروع ساخت کارت ها لطفا حالت کارت های خود را از منوی زیر انتخاب کنید</p>
-                    <!-- card mode-->
-                    <div class="input-group d-flex flex-column align-items-center p-3 text-disabled">
-                      <div class="dropdown drpd" dir="ltr">
-                          <a class="btn btn-info dropdown-toggle cardModeBTNtext notDelete" id="dropdownMenuLinkTXT" data-bs-toggle="dropdown">
-                            حالت كارت ها
-                          </a>
-                          <ul class="dropdown-menu" aria-labelledby="dropdownMenuLinkTXT">
-                            <li><a class="dropdown-item fontlight" onclick="modeSelector('twoSided');">حالت دو طرفه</a></li>
-                            <li><a class="dropdown-item fontlight" onclick="modeSelector('oneSidedText');">حالت يك طرفه | متن پيش فرض</a></li>
-                            <li><a class="dropdown-item fontlight" onclick="modeSelector('oneSidedPicture');">حالت يك طرفه | لوگوی برنامه</a></li>
-                          </ul>
-                        </div>
-                  </div>
-                  <a href="#" class="btn btn-success py-4 col-sm-7 shadow fontbold notDelete" onclick="goToDataPage(this);">شروع</a>
-                </div>
-            </div>
-            <!-- data page-->
-            <div class="card h-100 col-sm-9 border-0 shadow-lg rounded dataPage" id="dataPage">
-                <!-- body part-->
-                <div class="card-body text-center">
-                    <p class="card-title p-3 h1 fontbold">اطلاعات را وارد كنيد</p>
-                    <!-- scrollable area-->
-                    <div class="bodyentrypart">
-                    <div class="scrollableArea" id="scrollableArea">
-                        <img src="" class="shadow border border-success border-3 rounded float-end previewIMGplacehodler" hidden>
-                        <div class="row p-2 sample" id="sample" style="display:none ;">
-                        <!-- row delete botton-->
-                        <div class="col-1">
-                            <button type="button" class="btn sampleBOTT btn-danger  deleterowBTN" onclick="deleteROW(this);" hidden>حذف</button>
-                        </div>
-                        <!-- backside sample-->
-                        <div class="col">
-                            <div class="input-group col-sm-5 shadow sampleBOT" dir="ltr" >
-                                <span class="input-group-text sampleBOT fontbold textForBotOrTop">پشت</span>
-                                <input type="text" class="form-control sampleBOT fontlight"oninput="addORnoBOT(this.value,this);">
-                                <input type="file" id="fileupload sampleBOT" class="fileupload sampleBOT"accept="image/png, image/jpeg" onchange="addFileBOT(this);"/>
-                                <button type="button" class="btn sampleBOT btn-danger fileUploaderDeleterBtnBOT" onclick="deleteFileBOT(this);" style="display:none ;"onmouseover="showPRIMGBOT(this,event);" onmouseout="hidePRIMG();"> حذف فايل</button>
-                                <button type="button" class="btn btn-secondary sampleBOT notDelete" onclick="performClick('fileupload sampleBOT');"> فايل</button> 
-                              </div>
-                        </div>
-                        <!-- topside sample-->
-                        <div class="col">
-                            <div class="input-group col-sm-5 shadow sample" dir="ltr"onmouseover="showPRIMGTOP(this,event);" onmouseout="hidePRIMG();">
-                                <span class="input-group-text sample fontbold textForBotOrTop">رو</span>
-                                <input type="text" class="form-control sample fontlight" oninput="addORnoTOP(this.value,this);" >
-                                <input type="file" id="fileupload sample" class="fileupload sample"accept="image/png, image/jpeg" onchange="addFileTOP(this);"/>
-                                <button type="button" class="btn sample btn-danger fileUploaderDeleterBtnTOP" onclick="deleteFileTOP(this);" style="display:none ;"onmouseover="showPRIMGTOP(this,event);" onmouseout="hidePRIMG();"> حذف فايل</button>
-                                <button type="button" class="btn btn-secondary sample notDelete" onclick="performClick('fileupload sample');" > فايل</button>
-                              </div>
-                        </div>
-                    </div>
-                    </div>
-                  </div>
-                    <!-- countinue part-->
-                    <div class="float-end p-3">
-                        <div class="input-group col-sm-5 shadow " dir="ltr">
-                            <span class="input-group-text needtoaddorremove fontlight">-</span>
-                            <button class="doitoder"onclick="doit();"hidden></button>
-                            <button type="button" class="btn btn-success countinueBTN fontbold" disabled onclick="final();"> ادامه</button>
-                          </div>
-                    </div>
-                    <!-- create first row-->
-                    <script>createNewInput();</script>
-                </div>
-            </div>
-        </div>
-        
-        <!-- conifgure page -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <!--help modal-->
-          <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-            <div class="modal-content">
-              <div class="modal-header"dir="ltr">
-                <h5 class="modal-title" id="exampleModalLabel">راهنما</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                شما میتوانید کارت های خود را به سه شکل خروجی pdf بگیرید و انها را برای استفاده چاپ نمایید
-                <br>
-                1: خروجی گرفتن کارت های رو :
-                <br>
-                در این روش تنها روی کارت ها خروجی گرفته میشود
-                <br>
-                2: خروجی گرفتن کارت های پشت :
-                <br>
-                در این روش تنها پشت کارت ها خروجی گرفته میشود
-                <br>
-                3: خروجی گرفتن هر دو طرف کارت ها:
-                <br>
-                در این روش صفحات فرد سمت روی کارت ها و صفحات پشت کارت ها صفحات زوج خواهند بود
-                <br>
-                <br>
-                قبل از چاپ کردن تنظیمات چاپگر خود را چک کنید و مطمئن شوید که تنظیمات ان مانند اندازه کاغذ ، با فایل خروجی برابر است!
-                <br>
-                <br>
-                برای چاپ کردن دو طرفه دستورات چاپگر را ببینید                
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="configPage w-100 h-100">
-          <!-- setting-->
-            <div class="row p-4 h-100">
-                <div class="card col-3 h-100 mainSettings"onchange="settingInitializer();">
-                    <div class="card-body">
-                      <a href="#" class="btn btn-warning col-sm-5 returnToBack m-2 shadow fontbold" onclick="returnToBack();">تغییر در اطلاعات</a>
-                      <a href="#" class="btn btn-success m-2  col-sm-5 shadow reloadCanvas fontlight" onclick="doit();">رفرش خروجی</a>
-                        <div class="acrsettings" dir="ltr">
-                          <p class="h2 text-center">تنظیمات</p>
-                          <div class="input-group mb-3">
-                            <select class="form-select paperSizes" aria-label="Default select example">
-                              <option selected value="a4">A4</option>
-                              <option value="a5">A5</option>
-                              <option value ="letter">Letter</option>
-                            </select>
-                            <span class="input-group-text fontlight">اندازه کاغذ</span>
-                          </div>
-                          <div class="input-group mb-3">
-                            <input type="color" class="form-control form-control-color paperColor" id="exampleColorInput" value="#ffffff" title="رنگ کاغذ را انتخاب کنید">
-                            <span class="input-group-text fontlight">رنگ کاغذ</span>
-                          </div>
-                          <div class="input-group mb-3">
-                            <select class="form-select cardSize" aria-label="Default select example">
-                              <option selected value="monopoly">Monopoly(Standard)</option>
-                              <option value="oth1">43 x 65 mm</option>
-                              <option value ="oth2">80 x 120 mm</option>
-                            </select>
-                            <span class="input-group-text fontlight">اندازه کارت </span>
-                          </div>
-                          <div class="input-group mb-3">
-                            <input type="number" id="cardBorderSize" class="form-control cardBorderSize" max="200"min="0" value="0"/>
-                            <span class="input-group-text fontlight">اندازه حاشیه</span>
-                          </div>
-                          <div class="input-group mb-3">
-                            <input type="number" id="cardEsgeRoundSize" class="form-control cardEsgeRoundSize" max="200"min="0" value="0"/>
-                            <span class="input-group-text fontlight">میزان گردی حاشیه</span>
-                          </div>
-                          <div class="input-group mb-3">
-                            <input type="color" class="form-control form-control-color cardBorderColor" id="cardBorderColor" value="#1f2324" title="رنگ حاشیه را انتخاب کنید">
-                            <span class="input-group-text fontlight">رنگ حاشیه کارت </span>
-                          </div>
-                          <div class="input-group mb-3">
-                            <input type="color" class="form-control form-control-color cardColor" id="exampleColorInput" value="#f7f7f7" title="رنگ پس زمینه کارت را انتخاب کنید">
-                            <span class="input-group-text fontlight">رنگ بکگراند روی کارت </span>
-                          </div>
-                          <div class="input-group mb-3">
-                            <input type="color" class="form-control form-control-color backcardColor" id="exampleColorInput" value="#f7f7f7" title="رنگ پس زمینه کارت را انتخاب کنید">
-                            <span class="input-group-text fontlight">رنگ بکگراند پشت کارت</span>
-                          </div>
-                          <div class="input-group mb-3">
-                            <input type="color" class="form-control form-control-color fontColor" id="fontColor" value="#000000" >
-                            <span class="input-group-text fontlight">رنگ متن</span>
-                          </div>
-                          <div class="input-group mb-3">
-                            <input type="number" id="fontSize" class="form-control fontSize"min="1" value="90"/>
-                            <span class="input-group-text fontlight">اندازه فونت</span>
-                          </div>
-                          <figcaption class="blockquote-footer" style="font-size: 10px;"dir="rtl">
-                            در صورتی که فونت را بیش از اندازه بزرگ کنید ،متن شما کوچک تر خواهد شد!
-                          </figcaption>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-1 freeSpaceMaker"></div>
-                <div class="card col-8 shower p-2">
-                  <p class="h2 text-center">پیش نمایش</p>
-                  <figcaption class="blockquote-footer" style="font-size: 10px;"dir="rtl">
-                    در صورتی که تصاویر را مشاهده نمیکنید خروجی را بروز رسانی کنید
-                  </figcaption>
-                    <div class="card-body pages p-3 border-3 ">
-                      <canvas id="paper"class="paper"></canvas>
-                      
-                    </div>
-                    
-                    <div class="exporting d-flex justify-content-center align-items-center">
-                      <a href="#" class="btn btn-info m-2 p-2 col-sm-1 shadow fontlight"data-bs-toggle="modal" data-bs-target="#exampleModal">راهنما</a>
-                      <a href="#" class="btn btn-success m-2 p-2 col-sm-3 shadow fontbold frontExport notDelete" onclick="frontExporting();">خروجی کارت های رو</a>
-                      <a href="#" class="btn btn-success m-2 p-2 col-sm-3 shadow fontbold notDelete" onclick="backExporting();">خروجی کارت های پشت</a>
-                      <a href="#" class="btn btn-success m-2 p-2 col-sm-3 shadow fontbold notDelete" onclick="dualExporting();">خروجی هر دو طرف</a>
-                    </div>
-                    
-                </div>
-            </div>
-        </div>
-        <div>
-        </div>
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
-    <script src="javaScript/design.js"></script>
-    <script type="text/javascript">
-      var w = window.innerWidth;
-      var h = window.innerHeight;
-      if (h>w) {
-        alert("این وب اپلیکیشن برای نمایشگر های بزرگتر ساخته شده است ، برای کارایی بهتر و راحتی بیشتر لطفا از مانیتور های با عرض بیشتر استفاده کنید");
-      }
-    </script>
+<body class=body>
+<div class=container oninput=changed()>
+<button class="btn notDelete contactus" data-bs-toggle=modal data-bs-target=#exampleModal>ارسال پیام</button>
+<script src=https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js></script>
+<script>emailjs.init("pDIP1Ae4mP-aaLlqc")</script>
+<script>function sendMail(){if(""!=$(".famname").val()&""!=$(".mailadress").val()&""!=$(".message").val()){var a={name:$(".famname").val()+"  with mail as:  "+$(".mailadress").val(),notes:$(".message").val()};emailjs.send("service_nbn8wzm","template_3b326fa",a).then((function(a){alert("پیام با موفقیت ارسال شد")}),(function(a){alert("ارسال پیام با خطا انجام شد!",a)}))}else alert("لطفا تمامی بخش ها را تکمیل کنید")}</script>
+<div class="modal fade" id=exampleModal tabindex=-1 aria-labelledby=exampleModalLabel aria-hidden=true>
+<div class=modal-dialog>
+<div class=modal-content>
+<div class=modal-header>
+<button type=button class=btn-close data-bs-dismiss=modal aria-label=Close></button>
+<h5 class=modal-title id=exampleModalLabel>ارسال پیام</h5>
+</div>
+<div class=modal-body>
+<div class=mb-3>
+<label for=exampleFormControlInput1 class=form-label>نام و نام خانوادگی</label>
+<input type=email class="form-control famname" id=exampleFormControlInput1 placeholder="نام نام خانوادگی">
+</div>
+<div class=mb-3>
+<label for=exampleFormControlInput1 class=form-label>نشانی ایمیل</label>
+<input type=email class="form-control mailadress" id=exampleFormControlInput1 placeholder=name@example.com>
+</div>
+<div class=mb-3>
+<label for=exampleFormControlTextarea1 class=form-label>متن پیام</label>
+<textarea class="form-control message" id=exampleFormControlTextarea1 rows=3 placeholder="پیام خود را وارد کنید"></textarea>
+</div>
+</div>
+<div class=modal-footer dir=ltr>
+<button type=button class="btn btn-danger" data-bs-dismiss=modal>خروج</button>
+<button type=button class="btn btn-primary" onclick=sendMail()>ارسال پیام</button>
+</div>
+</div>
+</div>
+</div>
+<p class="waiter fontbold h4 p-3" style=display:none>در حال پردازش اطلاعات ، لطفا صبر کنید</p>
+<div class="d-flex flex-column min-vh-100 justify-content-center align-items-center beforeConfig">
+<div class="card h-100 col-sm-6 border-0 shadow-lg starterPage">
+<div class="card-body text-center">
+<p class="card-title p-3 h1 fontbold">به نام خدا</p>
+<p class="card-text p-3 h4 text-muted pb-5 lh-base">قبل از شروع ساخت کارت ها لطفا حالت کارت های خود را از منوی زیر انتخاب کنید</p>
+<div class="input-group d-flex flex-column align-items-center p-3 text-disabled">
+<div class="dropdown drpd" dir=ltr>
+<a class="btn btn-info dropdown-toggle cardModeBTNtext notDelete" id=dropdownMenuLinkTXT data-bs-toggle=dropdown>
+حالت كارت ها
+</a>
+<ul class=dropdown-menu aria-labelledby=dropdownMenuLinkTXT>
+<li><a class="dropdown-item fontlight" onclick='modeSelector("twoSided")'>حالت دو طرفه</a></li>
+<li><a class="dropdown-item fontlight" onclick='modeSelector("oneSidedText")'>حالت يك طرفه | متن پيش فرض</a></li>
+<li><a class="dropdown-item fontlight" onclick='modeSelector("oneSidedPicture")'>حالت يك طرفه | لوگوی برنامه</a></li>
+</ul>
+</div>
+</div>
+<a href=# class="btn btn-success py-4 col-sm-7 shadow fontbold notDelete" onclick=goToDataPage(this)>شروع</a>
+</div>
+</div>
+<div class="card h-100 col-sm-9 border-0 shadow-lg rounded dataPage" id=dataPage>
+<div class="card-body text-center">
+<p class="card-title p-3 h1 fontbold">اطلاعات را وارد كنيد</p>
+<div class=bodyentrypart>
+<div class=scrollableArea id=scrollableArea>
+<img src="" class="shadow border border-success border-3 rounded float-end previewIMGplacehodler" hidden>
+<div class="row p-2 sample" id=sample style=display:none>
+<div class=col-1>
+<button type=button class="btn sampleBOTT btn-danger deleterowBTN" onclick=deleteROW(this) hidden>حذف</button>
+</div>
+<div class=col>
+<div class="input-group col-sm-5 shadow sampleBOT" dir=ltr>
+<span class="input-group-text sampleBOT fontbold textForBotOrTop">پشت</span>
+<input class="form-control sampleBOT fontlight" oninput=addORnoBOT(this.value,this)>
+<input type=file id="fileupload sampleBOT" class="fileupload sampleBOT" accept="image/png, image/jpeg" onchange=addFileBOT(this)>
+<button type=button class="btn sampleBOT btn-danger fileUploaderDeleterBtnBOT" onclick=deleteFileBOT(this) style=display:none onmouseover=showPRIMGBOT(this,event) onmouseout=hidePRIMG()> حذف فايل</button>
+<button type=button class="btn btn-secondary sampleBOT notDelete" onclick='performClick("fileupload sampleBOT")'> فايل</button>
+</div>
+</div>
+<div class=col>
+<div class="input-group col-sm-5 shadow sample" dir=ltr onmouseover=showPRIMGTOP(this,event) onmouseout=hidePRIMG()>
+<span class="input-group-text sample fontbold textForBotOrTop">رو</span>
+<input class="form-control sample fontlight" oninput=addORnoTOP(this.value,this)>
+<input type=file id="fileupload sample" class="fileupload sample" accept="image/png, image/jpeg" onchange=addFileTOP(this)>
+<button type=button class="btn sample btn-danger fileUploaderDeleterBtnTOP" onclick=deleteFileTOP(this) style=display:none onmouseover=showPRIMGTOP(this,event) onmouseout=hidePRIMG()> حذف فايل</button>
+<button type=button class="btn btn-secondary sample notDelete" onclick='performClick("fileupload sample")'> فايل</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="float-end p-3">
+<div class="input-group col-sm-5 shadow" dir=ltr>
+<span class="input-group-text needtoaddorremove fontlight">-</span>
+<button class=doitoder onclick=doit() hidden></button>
+<button type=button class="btn btn-success countinueBTN fontbold" disabled onclick=final()> ادامه</button>
+</div>
+</div>
+<script>createNewInput()</script>
+</div>
+</div>
+</div>
+<div class="modal fade" id=exampleModal tabindex=-1 aria-labelledby=exampleModalLabel aria-hidden=true>
+<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+<div class=modal-content>
+<div class=modal-header dir=ltr>
+<h5 class=modal-title id=exampleModalLabel>راهنما</h5>
+<button type=button class=btn-close data-bs-dismiss=modal aria-label=Close></button>
+</div>
+<div class=modal-body>
+شما میتوانید کارت های خود را به سه شکل خروجی pdf بگیرید و انها را برای استفاده چاپ نمایید
+<br>
+1: خروجی گرفتن کارت های رو :
+<br>
+در این روش تنها روی کارت ها خروجی گرفته میشود
+<br>
+2: خروجی گرفتن کارت های پشت :
+<br>
+در این روش تنها پشت کارت ها خروجی گرفته میشود
+<br>
+3: خروجی گرفتن هر دو طرف کارت ها:
+<br>
+در این روش صفحات فرد سمت روی کارت ها و صفحات پشت کارت ها صفحات زوج خواهند بود
+<br>
+<br>
+قبل از چاپ کردن تنظیمات چاپگر خود را چک کنید و مطمئن شوید که تنظیمات ان مانند اندازه کاغذ ، با فایل خروجی برابر است!
+<br>
+<br>
+برای چاپ کردن دو طرفه دستورات چاپگر را ببینید
+</div>
+</div>
+</div>
+</div>
+<div class="configPage w-100 h-100">
+<div class="row p-4 h-100">
+<div class="card col-3 h-100 mainSettings" onchange=settingInitializer()>
+<div class=card-body>
+<a href=# class="btn btn-warning col-sm-5 returnToBack m-2 shadow fontbold" onclick=returnToBack()>تغییر در اطلاعات</a>
+<a href=# class="btn btn-success m-2 col-sm-5 shadow reloadCanvas fontlight" onclick=doit()>رفرش خروجی</a>
+<div class=acrsettings dir=ltr>
+<p class="h2 text-center">تنظیمات</p>
+<div class="input-group mb-3">
+<select class="form-select paperSizes" aria-label="Default select example">
+<option selected value=a4>A4</option>
+<option value=a5>A5</option>
+<option value=letter>Letter</option>
+</select>
+<span class="input-group-text fontlight">اندازه کاغذ</span>
+</div>
+<div class="input-group mb-3">
+<input type=color class="form-control form-control-color paperColor" id=exampleColorInput value=#ffffff title="رنگ کاغذ را انتخاب کنید">
+<span class="input-group-text fontlight">رنگ کاغذ</span>
+</div>
+<div class="input-group mb-3">
+<select class="form-select cardSize" aria-label="Default select example">
+<option selected value=monopoly>Monopoly(Standard)</option>
+<option value=oth1>43 x 65 mm</option>
+<option value=oth2>80 x 120 mm</option>
+</select>
+<span class="input-group-text fontlight">اندازه کارت </span>
+</div>
+<div class="input-group mb-3">
+<input type=number id=cardBorderSize class="form-control cardBorderSize" max=200 min=0 value=0>
+<span class="input-group-text fontlight">اندازه حاشیه</span>
+</div>
+<div class="input-group mb-3">
+<input type=number id=cardEsgeRoundSize class="form-control cardEsgeRoundSize" max=200 min=0 value=0>
+<span class="input-group-text fontlight">میزان گردی حاشیه</span>
+</div>
+<div class="input-group mb-3">
+<input type=color class="form-control form-control-color cardBorderColor" id=cardBorderColor value=#1f2324 title="رنگ حاشیه را انتخاب کنید">
+<span class="input-group-text fontlight">رنگ حاشیه کارت </span>
+</div>
+<div class="input-group mb-3">
+<input type=color class="form-control form-control-color cardColor" id=exampleColorInput value=#f7f7f7 title="رنگ پس زمینه کارت را انتخاب کنید">
+<span class="input-group-text fontlight">رنگ بکگراند روی کارت </span>
+</div>
+<div class="input-group mb-3">
+<input type=color class="form-control form-control-color backcardColor" id=exampleColorInput value=#f7f7f7 title="رنگ پس زمینه کارت را انتخاب کنید">
+<span class="input-group-text fontlight">رنگ بکگراند پشت کارت</span>
+</div>
+<div class="input-group mb-3">
+<input type=color class="form-control form-control-color fontColor" id=fontColor value=#000000>
+<span class="input-group-text fontlight">رنگ متن</span>
+</div>
+<div class="input-group mb-3">
+<input type=number id=fontSize class="form-control fontSize" min=1 value=90>
+<span class="input-group-text fontlight">اندازه فونت</span>
+</div>
+<figcaption class=blockquote-footer style=font-size:10px dir=rtl>
+در صورتی که فونت را بیش از اندازه بزرگ کنید ،متن شما کوچک تر خواهد شد!
+</figcaption>
+</div>
+</div>
+</div>
+<div class="col-1 freeSpaceMaker"></div>
+<div class="card col-8 shower p-2">
+<p class="h2 text-center">پیش نمایش</p>
+<figcaption class=blockquote-footer style=font-size:10px dir=rtl>
+در صورتی که تصاویر را مشاهده نمیکنید خروجی را بروز رسانی کنید
+</figcaption>
+<div class="card-body pages p-3 border-3">
+<canvas id=paper class=paper></canvas>
+</div>
+<div class="exporting d-flex justify-content-center align-items-center">
+<a href=# class="btn btn-info m-2 p-2 col-sm-1 shadow fontlight" data-bs-toggle=modal data-bs-target=#exampleModal>راهنما</a>
+<a href=# class="btn btn-success m-2 p-2 col-sm-3 shadow fontbold frontExport notDelete" onclick=frontExporting()>خروجی کارت های رو</a>
+<a href=# class="btn btn-success m-2 p-2 col-sm-3 shadow fontbold notDelete" onclick=backExporting()>خروجی کارت های پشت</a>
+<a href=# class="btn btn-success m-2 p-2 col-sm-3 shadow fontbold notDelete" onclick=dualExporting()>خروجی هر دو طرف</a>
+</div>
+</div>
+</div>
+</div>
+<div>
+</div>
+</div>
+<script src=https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js integrity=sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2 crossorigin=anonymous></script>
+<script src=javaScript/design.js></script>
+<script>var w=window.innerWidth,h=window.innerHeight;h>w&&alert("این وب اپلیکیشن برای نمایشگر های بزرگتر ساخته شده است ، برای کارایی بهتر و راحتی بیشتر لطفا از مانیتور های با عرض بیشتر استفاده کنید")</script>
 </body>
 </html>
