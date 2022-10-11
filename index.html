@@ -1,0 +1,595 @@
+<!-- this web application created by Mohamad Movahedin made to order Goriz Group -->
+<!-- Main Page -->
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <!-- title -->
+  <title>Glimpse | صفحه اصلی</title>
+  <!-- meta tags for robots, description, keywords,rat -->
+  <meta name=”robots” content="index, follow">
+  <meta name="description" content="ساخت بازی کارتی و اموزشی با تنها چند کلیک ساده با نرم افزار GLIMPSE">
+  <meta name="keywords" content="بازی ساز,بازی اموزشی,ساخت بازی,ساخت بازی اموزشی,گلیمپس,نرم افزار,اموزش,اموزش با بازی,پروژه ی استارتاپ,گریز,گروه گریز,استارتاپ بازی,شهر افعال,تیزبین,تیزبین ساز,ساخت بازی تیزبین,">
+  <meta name="rating" content="general" />
+  <meta name="author" content="Mohamad Movahedin | Goriz group">
+  <meta http-equiv="content-language" content="fa">
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/img/fav/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/fav/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/img/fav/favicon-16x16.png">
+  <link rel="manifest" href="assets/img/fav/site.webmanifest">
+  <link rel="mask-icon" href="assets/img/fav/safari-pinned-tab.svg" color="#5bbad5">
+  <!-- color theme set -->
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <!-- CSS Files -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
+  <link href="assets/css/style.css" rel="stylesheet">
+  <!-- google tag manager for record user expriense -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-KX1PW7RDZN"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-KX1PW7RDZN');
+  </script>
+</head>
+<body>
+  <!-- modals -->
+  <div class="container">
+    <!-- bottom left button to send email -->
+    <button class="btn notDelete contactus"data-bs-toggle="modal" data-bs-target="#exampleModal">ارسال پیام</button>
+    <!-- email send JS code -->
+    <script type="text/javascript"src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+      // initialize emailjs
+      (function(){
+      emailjs.init("pDIP1Ae4mP-aaLlqc");
+      })();
+      // void to send mail using emailjs
+      function sendMail() {
+       if ($(".famname").val()!="" & $(".mailadress").val()!="" & $(".message").val()!="") {
+        var templateParams = {
+        name: ($(".famname").val()+"  with mail as:  "+$(".mailadress").val()),
+        notes: $(".message").val()
+        };
+        emailjs.send('service_nbn8wzm', 'template_3b326fa', templateParams)
+          .then(function(response) {
+            alert("پیام با موفقیت ارسال شد");
+          }, function(error) {
+            alert('ارسال پیام با خطا انجام شد!', error);
+        });
+        }else{
+            alert("لطفا تمامی بخش ها را تکمیل کنید");
+        }
+      }   
+    </script>
+    <!-- message send modal -->
+    <div class="modal fade modal-lg" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <h5 class="modal-title" id="exampleModalLabel">ارسال پیام</h5>
+          </div>
+          <div class="modal-body">
+            <div class="mb-3">
+              <label for="nameandfamilyname" class="form-label ">نام و نام خانوادگی</label>
+              <input type="email" class="form-control famname" id="nameandfamilyname" placeholder="نام نام خانوادگی">
+            </div>
+            <div class="mb-3">
+              <label for="emailadress" class="form-label">نشانی ایمیل</label>
+              <input type="email" class="form-control mailadress" id="emailadress" placeholder="name@example.com">
+            </div>
+            <div class="mb-3">
+              <label for="exampleFormControlTextarea1" class="form-label ">متن پیام</label>
+              <textarea class="form-control message" id="exampleFormControlTextarea1" rows="3" placeholder="پیام خود را وارد کنید"></textarea>
+            </div>
+          </div>
+          <div class="modal-footer"dir="ltr">
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">خروج</button>
+            <button type="button" class="btn btn-primary"onclick="sendMail();">ارسال پیام</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- login modal -->
+    <div class="modal fade modal-lg" id="loginmodal" tabindex="-1" aria-labelledby="loginmodalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <h5 class="modal-title" id="exampleModalLabel">ورود</h5>
+          </div>
+          <div class="modal-body">
+            <div class="mb-3">
+              <label for="loginUsername" class="form-label ">کد ورود :</label>
+              <input type="password" class="form-control" id="loginUsername" placeholder="کد ورود خود را وارد کنید" oninput="checkjustletter();">
+            </div>
+          </div>
+          <div class="modal-footer"dir="ltr">
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">خروج</button>
+            <button onclick="dataLogin();" class="btn btn-primary">ورود</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- card creation tutorial modal -->
+    <div class="modal fade modal-lg" id="cardcreationTutorial" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <h5 class="modal-title" id="exampleModalLabel">آموزش ساخت کارت ها</h5>
+          </div>
+          <div class="modal-body">
+            <p>برای شروع ساخت کارت ها اول حالت کارت خود را انتخاب کنید و سپس بر روی شروع کلیک کنید</p>
+            <img src="assets/img/tutorial/1.png"style="width:100%"alt="تصویر اموزشی 1">
+            <p>در صورتی که از متن پیشفرض استفاده میکنید بعد از کلیک بر روی این گزینه میتوانید متن مورد نظر را عوض کنید</p>
+            <img src="assets/img/tutorial/2.png"style="width:100%"alt="تصویر اموزشی 2">
+            <p>پس از کلیک بر روی "شروع " میتوانید اطلاعات را وارد کنید ، تصویر زیر نمونه ای از حالت دوطرفه را به شما نشان میدهد</p>
+            <p>پس از وارد کردن اطلاعات در یک ردیف جدید ، ردیف دیگری برای شما ساخته میشود که میتوانید اطلاعات دیگری را در ان وارد کنید</p>
+            <img src="assets/img/tutorial/3.png"style="width:100%"alt="تصویر اموزشی 3">
+            <p>شما میتوانید با کلیک بر روی "فایل" تصویری را به عنوان ورودی مورد نظر خود انتخاب کنید</p>
+            <p>شما میتوانید با کلیک بر روی حذف فایل فایل را حذف کنید یا با کلیک دوباره بر روی "فایل" فایل خود را عوض کنید،همجنین باکلیک بر روی "حذف" کنار ردیف ، میتوانید از ردیف را به طور کامل حذف کنید</p>
+            <img src="assets/img/tutorial/4.png"style="width:100%"alt="تصویر اموزشی 4">
+            <p>در این بخش شما میتوانید ببینید که برای ادامه ، چه تعداد کارت باید اضافه کنید یا کم کنید ،</p>
+            <img src="assets/img/tutorial/5.png"style="width:100%"alt="تصویر اموزشی 5">
+            <p>در صورتی که اطلاعات تعدادشان درست باشد و مشکلی نباشد این پیام را خواهید دید و میتوانید با کلیک بر روی "ادامه"کار ساخت و دیدن کارت ها را شروع کنید</p>
+            <img src="assets/img/tutorial/6.png"style="width:100%"alt="تصویر اموزشی 6">
+            <p>در بخش سمت جپ پیش نمایشی از کارت های خود را میتوانید ببینید ، در سمت راست میتوانید تنظیمات خروجی را عوض کنید و اگر میخواهید اطلاعات وارد شده خود را عوض کنید میتوانید بر روی "تغییر اطلاعات" کلیک کنید،در صورتی که در دیدن خروجی مشکلی بود ، بر روی رفرش خروجی کلیک کنید تا دوباره کارت ها ساخته شوند ، در نهایت میتوانید از دکمه های زیر بخش پیشنمایش برای خروجی گرفتن استفاده کنید ، برای اطلاعات بیشتر در مورد خروجی گرفتن بر روی "راهنما" کلیک کنید</p>
+            <img src="assets/img/tutorial/7.png"style="width:100%"alt="تصویر اموزشی 7">
+            
+
+          </div>
+          <div class="modal-footer"dir="ltr">
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">بستن</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- how to play modal -->
+    <div class="modal fade modal-lg" id="howtoplay" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <h5 class="modal-title" id="exampleModalLabel">چگونه با کارت ها بازی کنیم ؟</h5>
+          </div>
+          <div class="modal-body">
+            <p>روش های متعددی برای بازی کردن با این کارت ها وجود دارد</p>
+            <p>به طور کلی از بین کارت ها شما دو کارت را بردارید ، از بین اطلاعات روی ان دو کارت حتما و فقط یکی از انها مشترک میباشد</p>
+            <img src="assets/img/samepictureexample.png"style="width:100%"alt="تصویر اموزش بازی">
+          </div>
+          <div class="modal-footer"dir="ltr">
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">بستن</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- professional detail modal -->
+    <div class="modal fade" id="profdetail" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header modal-lg">
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <h5 class="modal-title" id="exampleModalLabel">توضیحات فنی</h5>
+          </div>
+          <div class="modal-body">
+            <p>
+              ساخت سایت : برای ساخت این وبسایت از HTML,CSS,JavaScript,Bootstrap,Jquary  استفاده شده است
+            </p>
+            <p>
+              روش ساخت کارت ها : برای ساخت کارت ها از الگوریتم هایی میتوان استفاده کرد که با اطلاعات ورودی خود ، حالت کارت ها را بسازند ، یکی از انها الگوریتمی است به نام fano plane که یکی از الگوریتم هایی است که در ساخت این برنامه استفاده شده است 
+            </p>
+            <p>
+              برای اطلاعات بیشتر لطفا از راه ارسال ایمیل استفاده کنید 
+            </p>
+          </div>
+          <div class="modal-footer"dir="ltr">
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">بستن</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- how to buy modal -->
+    <div class="modal fade" id="buyguide" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header modal-lg">
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <h5 class="modal-title" id="exampleModalLabel">خرید بسته</h5>
+          </div>
+          <div class="modal-body">
+            <p>
+              لطفا جهت تهیه لایسنس خود ، مبلغ بسته مناسب خود را به شماره کارت
+            </p>
+            <a href="#code" onclick="navigator.clipboard.writeText(6104337400694012);" id="code">6104337400694012</a>
+            <p>واریز نمایید ، سپس فیش مربوطه را به شماره تلفن </p>
+            <a href="#phnum" onclick="navigator.clipboard.writeText(09912428373);" id="phnum">09912428373</a>
+            <p>از طریق پیامک و یا واتساپ ارسال نمایید ، تا چند ساعت پس از ارسال فیش و برسی صحت تراکنش ، کد فعال سازی در اختیار شما قرار خواهد گرفت که میتوانید از ان برای ورود به نرم افزار استفاده کنید</p>
+          </div>
+          <div class="modal-footer"dir="ltr">
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">بستن</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- mohamad movahedin info modal -->
+    <div class="modal fade" id="mohmovdetail" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header modal-lg">
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <h5 class="modal-title" id="exampleModalLabel">سازنده این برنامه</h5>
+          </div>
+          <div class="modal-body">
+            <p>محمد موحدین متولد 1386 هستم</p>
+            <p>علاقمند به برنامه نویسی و کار های کامپیوتری</p>
+            <p>راه های ارتباطی : </p>
+            <p>ایمیل : <a href="mailto:movahedin1386@gmail.com">movahedin1386@gmail.com</a></p>
+            <p>واتساپ : 09201867822</p>
+          </div>
+          <div class="modal-footer"dir="ltr">
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">بستن</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Header -->
+  <header id="header" class="header fixed-top">
+    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+      <!-- logo and name -->
+      <a href="index.html" class="logo d-flex align-items-center">
+        <img src="assets/img/logo.png" alt="لوگوی برنامه">
+        <span class="p-3">Glimpse</span>
+      </a>
+      <!-- navigation bar -->
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto" href="#about">چیست</a></li>
+          <li><a class="nav-link scrollto" href="#values">چرا </a></li>
+          <li><a class="nav-link scrollto" href="#features">قابلیت ها</a></li>
+          <li><a href="#"data-bs-toggle="modal" data-bs-target="#cardcreationTutorial">آموزش ساخت کارت ها</a></li>
+          <li><a href="#"data-bs-toggle="modal" data-bs-target="#howtoplay">چگونه از کارت ها استفاده کنم ؟</a></li>
+          <li><a href="#"data-bs-toggle="modal" data-bs-target="#profdetail">توضیحات فنی</a></li>
+          <li><a href="#"data-bs-toggle="modal" data-bs-target="#exampleModal">ارتباط با ما</a></li>
+          <li><button class="getstarted scrollto btn-primary"data-bs-toggle="modal" data-bs-target="#loginmodal"  dir="rtl" style="border: 0px;">ورود</button></li>
+        </ul>
+        <!-- for mobile devices add menu btn -->
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav>
+    </div>
+  </header>
+  <!-- main intruduction part-->
+  <section id="hero" class="hero d-flex align-items-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 d-flex flex-column justify-content-center">
+          <h1 data-aos="fade-up" > وب اپلیکیشن فارسی برای ساخت بازی های کارتی و آموزشی</h1>
+          <h2 data-aos="fade-up" data-aos-delay="400" >به راحتی و تنها با چند کلیک کارت های بازی مخصوص خود را بسازید</h2>
+          <div data-aos="fade-up" data-aos-delay="600">
+            <div class="text-center text-lg-start">
+              <a href="#pricing"target="_blank" class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center"dir="ltr">
+                <!-- create a type writing effect (js code at the end of code) -->
+                <span id="typewrit">همین الان شروع کنید</span>
+                <i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 hero-img" data-aos="zoom-out" data-aos-delay="200">
+          <img src="assets/img/main.svg" class="img-fluid" alt="تصویر صفحه اصلی">
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- other part of page -->
+  <main id="main">
+    <!-- About -->
+    <section id="about" class="about">
+      <div class="container" data-aos="fade-up">
+        <div class="row gx-0">
+          <div class="col-lg-6 d-flex flex-column justify-content-center" data-aos="fade-up" data-aos-delay="200">
+            <div class="content whatisit">
+              <h3>Glimpse چیست؟</h3>
+              <h2>در این وب اپلیکیشن شما میتوانید کارت های بازی را با اطلاعات خودتان درست کنید!</h2>
+              <p>
+                برای اطلاعات بیشتر به بخش اموزش مراجعه کنید
+              </p>
+              <div class="text-center text-lg-start">
+                <a href="#" class="btn-read-more d-inline-flex align-items-center justify-content-center align-self-center"data-bs-toggle="modal" data-bs-target="#cardcreationTutorial">
+                  <i class="bi bi-arrow-right"></i>
+                  <span>بیشتر بخوانید</span>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-2"></div>
+          <div class="col-lg-4 d-flex align-items-center" data-aos="zoom-out" data-aos-delay="200">
+            <img src="assets/img/why.svg" class="img-fluid" alt="چرا این برنامه">
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- positive think of this application -->
+    <section id="values" class="values">
+      <div class="container" data-aos="fade-up">
+        <header class="section-header">
+          <h2>چرا Glimpse</h2>
+          <p>مزایای بازی کردن با کارت های ساخته شده</p>
+        </header>
+        <!-- create a row with 3 thinks -->
+        <div class="row">
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="box val">
+              <img src="assets/img/secondselector.svg" class="img-fluid" alt="بالا بردن سرعت و دقت">
+              <h3 class="p-5">بالا بردن سرعت و دقت</h3>
+            </div>
+          </div>
+          <div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="400">
+            <div class="box val">
+              <img src="assets/img/learning.svg" class="img-fluid" alt="یادگیری در حین بازی">
+              <h3>یادگیری در حین بازی</h3>
+            </div>
+          </div>
+          <div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="600">
+            <div class="box val">
+              <img src="assets/img/havefun.svg" class="img-fluid" alt="سرگرمی">
+              <h3 class="p-5">سرگرمی</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Features -->
+    <section id="features" class="features">
+      <div class="container" data-aos="fade-up">
+        <header class="section-header">
+          <h2>قابلیت ها</h2>
+          <p>بعضی از قابلیت های این وب اپلیکیشن</p>
+        </header>
+        <div class="row">
+          <div class="col-lg-4">
+            <img src="assets/img/features.svg" class="img-fluid" alt="قابلیت ها">
+          </div>
+          <div class="col-lg-2"></div>
+          <div class="col-lg-6 mt-5 mt-lg-0 d-flex">
+            <!-- a row witch contains some div and each div is for one feture -->
+            <div class="row align-self-center gy-4">
+              <div class="col-md-6" data-aos="zoom-out" data-aos-delay="200">
+                <div class="feature-box d-flex align-items-center">
+                  <i class="bi bi-check"></i>
+                  <h3>سرعت ساخت بالا</h3>
+                </div>
+              </div>
+              <div class="col-md-6" data-aos="zoom-out" data-aos-delay="300">
+                <div class="feature-box d-flex align-items-center">
+                  <i class="bi bi-check"></i>
+                  <h3>راحتی در استفاده</h3>
+                </div>
+              </div>
+              <div class="col-md-6" data-aos="zoom-out" data-aos-delay="400">
+                <div class="feature-box d-flex align-items-center">
+                  <i class="bi bi-check"></i>
+                  <h3>خلاقیت در ساخت</h3>
+                </div>
+              </div>
+              <div class="col-md-6" data-aos="zoom-out" data-aos-delay="500">
+                <div class="feature-box d-flex align-items-center">
+                  <i class="bi bi-check"></i>
+                  <h3>محیط کاربری ساده</h3>
+                </div>
+              </div>
+              <div class="col-md-6" data-aos="zoom-out" data-aos-delay="600">
+                <div class="feature-box d-flex align-items-center">
+                  <i class="bi bi-check"></i>
+                  <h3>خروجی برای چاپ با کیفیت</h3>
+                </div>
+              </div>
+              <div class="col-md-6" data-aos="zoom-out" data-aos-delay="700">
+                <div class="feature-box d-flex align-items-center">
+                  <i class="bi bi-check"></i>
+                  <h3>و ...</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+      </div>
+
+    </section>
+    <!-- Pricing -->
+    <section id="pricing" class="pricing">
+    <div class="container" data-aos="fade-up">
+      <header class="section-header">
+        <h2>قیمت ها</h2>
+        <p>بسته مناسب خود را انتخاب کنید</p>
+      </header>
+      <div class="row gy-4" data-aos="fade-left">
+        <!-- first package -->
+        <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="100">
+          <div class="box">
+            <h3 style="color: #07d5c0;">دانش آموزی</h3>
+            <div class="price"><sup>تومان</sup>30,000<span> / نصف ماه</span></div>
+            <img src="assets/img/pricing-starter.png" class="img-fluid" alt="قیمت دانش اموزی">
+            <ul>
+              <li>مدت زمان 15 روزه</li>
+            </ul>
+            <a href="#" class="btn-buy"data-bs-toggle="modal" data-bs-target="#buyguide">خرید</a>
+          </div>
+        </div>
+        <!-- second package -->
+        <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="200">
+          <div class="box">
+            <span class="featured">پیشنهاد شده</span>
+            <h3 style="color: #65c600;">معلم</h3>
+            <div class="price"><sup>تومان</sup>50,000<span> / ماه</span></div>
+            <img src="assets/img/pricing-free.png" class="img-fluid" alt="قیمت معلمی">
+            <ul>
+              <li>مدت زمان 30 روزه</li>
+            </ul>
+            <a href="#" class="btn-buy"data-bs-toggle="modal" data-bs-target="#buyguide">خرید</a>
+          </div>
+        </div>
+        <!-- third package -->
+        <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="300">
+          <div class="box">
+            <h3 style="color: #ff901c;">تجاری</h3>
+            <div class="price"><sup>تومان</sup>110,000<span> / فصل</span></div>
+            <img src="assets/img/pricing-business.png" class="img-fluid" alt="قیمت تجاری">
+            <ul>
+              <li>مدت زمان 90 روزه</li>
+            </ul>
+            <a href="#" class="btn-buy"data-bs-toggle="modal" data-bs-target="#buyguide">خرید</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    </section>
+  </main>
+  <!-- Footer -->
+  <footer id="footer" class="footer">
+    <div class="container">
+      <div class="credits">
+        <p>تقدیم به امام زمان عجل اللّه تعالی فرجه الشریف</p>
+        <a href="mailto:goriz.glimpse@gmail.com">goriz.glimpse@gmail.com</a>
+        <p>ساخت و طراحی توسط <a href="" data-bs-toggle="modal" data-bs-target="#mohmovdetail">محمّد موحّدین</a> به پیشنهاد <a href="https://gorizgroup.landin.ir/intro/" target="_blank">گروه گریز</a></p>
+      </div>
+      <div class="copyright">
+        &copy;All Rights Reserved
+      </div>
+      <p> نسخه 4.2</p>
+    </div>
+  </footer>
+  <!-- go to top button as a link -->
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <!-- import js files -->
+  <script src="https://cdn.jsdelivr.net/npm/@srexi/purecounterjs/dist/purecounter_vanilla.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/js/glightbox.min.js"></script>
+  <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+  <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
+  <script src="assets/js/main.js"></script>
+  <!-- login script -->
+  <script type="text/javascript">
+    // on login code textbox dont accept number 
+    function checkjustletter() {
+      var inputdata = $("#loginUsername").val();
+      var letters =/^[A-Za-z]+$/;
+      if (inputdata.match(letters)==false) {
+        inputdata = inputdata.replace(/[0-9]/g, '');
+        $("#loginUsername").val(inputdata);
+      }
+    }
+    function dataLogin() {
+        function expierdOrNot(entryCode,crOrDe) {
+          // check for expire code date and return false if it was finished or return reminded daya
+          function getCodeData(encryptedcode) {
+        var day = parseInt(encryptedcode.slice(0,2));
+        var month = parseInt(encryptedcode.slice(2,4))-1;
+        var year = 2020+parseInt(encryptedcode.slice(4,5));
+        var expireDate = new Date(year, month, day);
+        var today = new Date();
+        var crday = today.getDate();
+        var crmonth = today.getMonth();
+        var cryear = today.getFullYear();
+        var crdate = new Date(cryear, crmonth,crday);
+        if (expireDate <= crdate) {
+            return false;
+        }else{
+          var diffTime = Math.abs(expireDate - crdate);
+          var diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); 
+          localStorage.setItem("dayreminded", diffDays);
+            return true;
+        }
+      } 
+          //needed data
+          var data =  ["u", "v", "w", "y","a", "b", "c", "d", "e", "f", "g", "h", "o", "p", "q", "r", "s", "t", "i", "j", "k", "l", "m", "n", "z"];
+          var tocrypt = entryCode.slice(0,5);
+          var key = entryCode.slice(5,6);
+          // code encrypter
+          function encrypt() {
+            var crypted ="";
+            var code = data.indexOf(key);
+            for (let j = 0; j < code; j++) {
+                data.shift(); 
+            }
+            for (let i = 0; i < tocrypt.length; i++) {
+                crypted += data[parseInt(tocrypt[i])];
+            }
+            return crypted+=key;
+          }
+          // code decrypter
+          function decrypt() {
+              var decrypted ="";
+              var code = data.indexOf(key);
+              for (let j = 0; j < code; j++) {
+                  data.shift();
+              }
+              for (let i = 0; i < tocrypt.length; i++) {
+                  decrypted += data.indexOf(tocrypt[i]);
+              }return decrypted+=key;
+          }
+          // find what should code do 
+          entryCode= entryCode.toLowerCase();
+          if (crOrDe==1) {
+              return encrypt();
+          }else{
+            console.log(decrypt());
+              return getCodeData(decrypt());
+          } 
+      }
+        // check login
+        var enteredCode = $("#loginUsername").val().toLowerCase();
+        var mode = expierdOrNot(enteredCode,2);
+        if (mode==true) {
+          // set cookie and localstorage for user login data and open creation page
+          document.cookie = "glimpseuserkeylogin=" +enteredCode;
+          localStorage.setItem("userlogedin","true");
+          window.open("./creator/index.html");
+          window.close();
+        }else{
+          alert("کد ورود نامعتر می‌باشد");
+        }
+    }
+  </script>
+  <!-- typewriter effect js code -->
+  <script type="text/javascript">
+    var app = document.getElementById('typewrit');
+    var typewriter = new Typewriter(app, {
+        loop: true,
+        autoStart: true
+    });
+    typewriter.typeString('همین الان شروع کنید').pauseFor(2500).deleteAll().start();
+  </script>
+  <!-- js to work with cookies for login code -->
+  <script type="text/javascript">
+    $(document).ready(function () {  
+      var cookieValue = document.cookie
+      .split('; ')
+    .find((row) => row.startsWith('glimpseuserkeylogin='))
+    ?.split('=')[1];
+      if (cookieValue!="undefined") {
+        $("#loginUsername").val(cookieValue.toUpperCase());
+      }
+        $("#loginUsername").keyup(function () {  
+            $(this).val($(this).val().toUpperCase());  
+        });  
+    });
+  </script>
+</body>
+</html>
