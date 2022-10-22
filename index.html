@@ -112,6 +112,7 @@
             <div class="mb-3">
               <label for="loginUsername" class="form-label ">کد ورود :</label>
               <input type="password" class="form-control" id="loginUsername" placeholder="کد ورود خود را وارد کنید" oninput="checkjustletter();">
+              <p>جهت تهیه لایسنس و کد ورود به این <a href="#pricing">لینک</a> مراجعه کنید</p>
             </div>
           </div>
           <div class="modal-footer"dir="ltr">
@@ -255,6 +256,7 @@
       <!-- navigation bar -->
       <nav id="navbar" class="navbar">
         <ul>
+          <li><a class="nav-link scrollto" href="#pricing">لاینسس</a></li>
           <li><a class="nav-link scrollto" href="#about">چیست</a></li>
           <li><a class="nav-link scrollto" href="#values">چرا </a></li>
           <li><a class="nav-link scrollto" href="#features">قابلیت ها</a></li>
@@ -262,7 +264,7 @@
           <li><a href="#"data-bs-toggle="modal" data-bs-target="#howtoplay">چگونه از کارت ها استفاده کنم ؟</a></li>
           <li><a href="#"data-bs-toggle="modal" data-bs-target="#profdetail">توضیحات فنی</a></li>
           <li><a href="#"data-bs-toggle="modal" data-bs-target="#exampleModal">ارتباط با ما</a></li>
-          <li><button class="getstarted scrollto btn-primary"data-bs-toggle="modal" data-bs-target="#loginmodal"  dir="rtl" style="border: 0px;">ورود</button></li>
+          <li><button class="getstarted scrollto btn-primary"data-bs-toggle="modal" data-bs-target="#loginmodal"  dir="rtl" style="border: 0px;">خرید و ورود</button></li>
         </ul>
         <!-- for mobile devices add menu btn -->
         <i class="bi bi-list mobile-nav-toggle"></i>
@@ -591,5 +593,17 @@
         });  
     });
   </script>
+  <div class="loaderdiv">
+    <div id="wrapper">
+    <div class="profile-main-loader">
+      <div class="loader">
+        <svg class="circular-loader"viewBox="25 25 50 50" >
+          <circle class="loader-path" cx="50" cy="50" r="20" fill="none" stroke="#4254c5" stroke-width="2" />
+        </svg>
+      </div>
+    </div>
+    </div>
+    <p>در حال بارگزاری صفحه ، لطفا کمی صبر کنید</p>
+  </div>
 </body>
 </html>

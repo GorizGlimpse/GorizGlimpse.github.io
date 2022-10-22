@@ -133,8 +133,6 @@
                     <!-- scrollable area and entry area-->
                     <div class="bodyentrypart">
                     <div class="scrollableArea" id="scrollableArea">
-                        <!-- show preview image when user hover on input part witch has image -->
-                        <img src="" class="shadow border border-success border-3 rounded float-end previewIMGplacehodler"alt="preview image" hidden>
                         <!-- every input row -->
                         <div class="row p-2 sample" id="sample" style="display:none ;">
                         <!-- row delete botton and new text-->
@@ -346,6 +344,8 @@
             </div>
         </div>
         <div>
+          <!-- show preview image when user hover on input part witch has image -->
+          <img src="" class="shadow border border-success border-3 rounded float-end previewIMGplacehodler"alt="preview image" hidden>
         </div>
     </div>
     <!-- import js files -->
@@ -359,5 +359,17 @@
         alert("این وب اپلیکیشن برای نمایشگر های بزرگتر ساخته شده است ، برای کارایی بهتر و راحتی بیشتر لطفا از مانیتور های با عرض بیشتر استفاده کنید");
       }
     </script>
+    <div class="loaderdiv">
+      <div id="wrapper">
+      <div class="profile-main-loader">
+        <div class="loader">
+          <svg class="circular-loader"viewBox="25 25 50 50" >
+            <circle class="loader-path" cx="50" cy="50" r="20" fill="none" stroke="#4254c5" stroke-width="2" />
+          </svg>
+        </div>
+      </div>
+      </div>
+      <p>در حال بارگزاری صفحه ، لطفا کمی صبر کنید</p>
+    </div>
 </body>
 </html>

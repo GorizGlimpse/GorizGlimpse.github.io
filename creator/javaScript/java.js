@@ -35,6 +35,7 @@ $(document).ready(function() {
 });
 // show toast for license and check for is this page loaded localy or no + show frist animations
 $(window).on('load', function() {
+  $(".loaderdiv").hide();
   $("#liveToast").toast("show");
   $(".toastmessage").text("مدت زمان باقیمانده لایسنس شما برابر با "+localStorage.getItem("dayreminded")+"روز میباشد");
   if (localStorage.getItem("userlogedin")=="true") {

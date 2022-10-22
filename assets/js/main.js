@@ -5,6 +5,7 @@
 /////////style file/////////////
 (function() {
   window.onload = function() {
+    $(".loaderdiv").hide();
     $(".contactus").fadeOut(1);
     $(".contactus").delay(2000).fadeIn("slow");    
   }
